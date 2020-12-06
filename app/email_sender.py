@@ -6,7 +6,7 @@ class ForgotPassword(object):
 
     def __init__(self):
         self.sender="aymen.m.rumi@gmail.com"
-        self.password="7895aymen"
+        self.password="******"
         self.server = smtplib.SMTP('smtp.gmail.com',587)
 
     def sendEmail(self,receiver,name,password):
