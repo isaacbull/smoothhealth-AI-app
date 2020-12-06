@@ -20,27 +20,18 @@ from keras.preprocessing.image import load_img
 
 
 
-
-"""
-connection = psycopg2.connect(
-    host="localhost",
-    database="postgres",
-    user="postgres",
-    password="aymen6215")
-"""
-
 tablename="ML_medicalapp"
 Primary_Col_Name='Username'
 columns=['Analytics','LoginNumber','Prediction']
-client=boto3.client('dynamodb',region_name='us-west-2',aws_access_key_id='AKIAQMQB4MABLCILE6VT',aws_secret_access_key='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')
-db=boto3.resource('dynamodb',region_name='us-west-2',aws_access_key_id='AKIAQMQB4MABLCILE6VT',aws_secret_access_key='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')
+client=boto3.client('dynamodb',region_name='us-west-2')
+db=boto3.resource('dynamodb',region_name='us-west-2')
 table=db.Table(tablename)
 
 connection = psycopg2.connect(
-    host="mlmedicalapp.chpzat3clawa.us-west-2.rds.amazonaws.com",
+    host="********",
     database="postgres",
     user="postgres",
-    password="621517Qwerty"
+    password="********"
 )
 
 
