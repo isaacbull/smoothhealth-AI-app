@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/tooltip.css')}}">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+
+    <head>
+        <title>Contact</title>
+    </head>
+
+    
+    <!-- Side navigation -->
+    <div class="sidenav">
+
+        <div class="img">
+            <img  class="medium" width="198" height="205" src="{{ url_for('static',filename='img/newlogo4.png')}}" alt="My Pic">
+        </div>
+                </br>
+                </br>
+                <a  href="myaccount" > <i class="material-icons-outlined"  >account_circle </i> My Account</a>
+                </br>
+
+
+                <div class="dropdown">
+                    <a  class="dropbtn"><i class="material-icons-outlined"  >analytics </i> Analytics</a>
+                    
+                    <div class="dropdown-content">
+                      <a href="d_analytics">Diabetes</a>
+                      <a href="hf_analytics">Heart Failure</a>
+                      <a href="lf_analytics">Liver Failure</a>
+        
+                    </div>
+                  </div>
+
+
+                </br>
+                    <div class="dropdown">
+                    <a class="dropbtn"><i class="material-icons-outlined"  >settings </i> ML Models</a>
+                    
+                    <div class="dropdown-content">
+                      <a href="diabetes_model">Diabetes</a>
+                      <a href="heartfailure_model">Heart Failure</a>
+                      <a href="alf_model">Liver Failure</a>
+                      <a href="pneumonia"> Pneumonia</a>
+                      <a href="braintumor">Brain Tumor</a>
+                    </div>
+                  </div>
+                
+                </br>
+             
+       
+      </div>
+    <!-- SideNav End -->
+
+    <!-- Body Divider -->
+    <div>
+    <!-- Body -->
+    <body style="background-color: #fff;">
+
+        <!-- Main -->
+        <div class="main">
+            
+ 
+            <!-- Top navigation -->
+            <div class="topnav">
+                <a href="/">Home</a>
+                <a  class="btn active"  href="contact">Contact</a>
+                <a href="about">About</a>
+               
+                <div class="topnav" style="float: right;">
+
+                    <div class="dropdowntop">
+                        
+                        <a class="dropbtntop">{{user_name}}</a>
+                        
+                        <div class="dropdowntop-content">
+                          <a href="logout">Log Out</a>
+      
+                        </div>
+                      </div>
+                  
+                    
+                  </div>
+            </div>
+            <!-- Top Nav End -->
+            
+            <!-- Content -->
+
+            <div class="content">
+            
+                <section class="container">
+                    <p class="title">
+                    <span class="title">Contact</span>
+                    </p>
+                </section>
+
+                Author: Aymen Rumi</br></br>
+                Website: <a style="text-decoration: none"  target="_blank"  href="https://aymenrumi.github.io/">aymenrumi.github.io</a></br></br>
+                Email: <a style="text-decoration: none" href="mailto:aymen.rumi@mail.mcgill.ca?">aymen.rumi@mail.mcgill.ca</a></br></br>
+
+
+                
+                </br>
+                
+                
+
+                </div>
+
+            </div>
+            <!-- Content End -->
+
+
+
+        <!-- Main End -->
+    </body>
+     <!-- Body End -->
+</div>
+
+<!-- Body Divider End-->
+</html>
+

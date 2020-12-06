@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css')}}">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+
+    <head>
+        <title>ALF Model</title>
+    </head>
+
+    <style>
+        input[type=number], select {
+ width: 7.5%;
+  padding: 12px 10px;
+  margin: 3px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.blinking{
+    animation:blinkingText 3.0s infinite;
+    
+    }
+    @keyframes blinkingText{
+        0%{     color: #22485F;    }
+        49%{    color: #22485F; }
+        60%{    color: #22485F; }
+        99%{    color:transparent;  }
+        100%{   color: #22485F;    }
+    }
+
+input[type=submit]:hover {
+  background-color: #227aee;
+}
+    </style>
+
+
+
+
+
+
+    {% if user_name==None %}
+            <!-- Side navigation -->
+    <div class="sidenav">
+
+        <div class="img">
+            <img  class="medium" width="198" height="205" src="{{ url_for('static',filename='img/newlogo4.png')}}" alt="My Pic">
+        </div>
+
+        <style>
+            .tooltip {
+                
+              border-radius: 8px;
+              text-decoration: none;
+              font-size: 20px;
+              color: white;
+              position: relative;
+              display: inline-block;
+             
+              overflow-y: visible;
+              overflow-x: visible;
+              
+              
+            }
+            
+            .tooltip .tooltiptext {
+              visibility: hidden;
+              width: 120px;
+              font-size: smaller;
+              background-color: #22485F;
+              color: #fff;
+              text-align: center;
+              border-radius: 6px;
+              padding: 5px 0;
+              position: absolute;
+              z-index: -1;
+              top: -5px;
+              left: 110%;
+              overflow-y: visible;
+              overflow-x: visible;
+              font-family: 'Quicksand';
+              font-size: smaller;
+            }
+            
+            .tooltip .tooltiptext::after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              right: 100%;
+              margin-top: -5px;
+              border-width: 5px;
+              border-style: solid;
+              border-color: transparent #22485F transparent transparent;
+              overflow-y: visible;
+              overflow-x: visible;
+              font-family: 'Quicksand';
+              font-size: smaller;
+            }
+            .tooltip:hover .tooltiptext {
+              visibility: visible;
+              overflow-y: visible;
+              overflow-x: visible;
+              font-size: smaller;
+            }
+            </style>
+
+            </br>
+            </br>
+            <div class="tooltip"><a  href="" > <i class="material-icons-outlined"  >account_circle </i> My Account   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                <span class="tooltiptext">Must Log In</span>
+            </div>
+
+                </br>
+                </br>
+
+                    <div class="dropdown">
+                    <a  class="dropbtn"><i class="material-icons-outlined"  >analytics </i> Analytics </a>
+                    
+                    <div class="dropdown-content">
+                      <a href="d_analytics">Diabetes</a>
+                      <a href="hf_analytics">Heart Failure</a>
+                      <a href="lf_analytics">Liver Failure</a>
+                      
+        
+                    </div>
+                  </div>
+
+
+                
+                </br>
+                <div class="dropdown">
+                    <a class="dropbtn"><i class="material-icons-outlined"  >settings </i> ML Models</a>
+                    
+                    <div class="dropdown-content">
+                      <a href="diabetes_model">Diabetes</a>
+                      <a href="heartfailure_model">Heart Failure</a>
+                      <a href="alf_model">Liver Failure</a>
+
+                      <div class="tooltip"><a href=""><i class="material-icons-outlined"  >account_box </i> Pneumonia     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                        <span class="tooltiptext">Must Log In</span>
+                    </div>
+
+                    <div class="tooltip"><a href=""><i class="material-icons-outlined"  >account_box </i> Brain Tumor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                        <span class="tooltiptext">Must Log In</span>
+                    </div>
+
+                      
+                    </div>
+                  </div>
+                
+                </br>
+             
+       
+      </div>
+    <!-- SideNav End -->
+
+    <!-- Body Divider -->
+    <div>
+    <!-- Body -->
+    <body style="background-color: #fff;">
+
+        <!-- Main -->
+        <div class="main">
+            
+ 
+            <!-- Top navigation -->
+            <div class="topnav" id="topnav">
+                <a class="btn" href="/">Home</a>
+                <a class="btn" href="contact">Contact</a>
+                <a class="btn" href="about">About</a>
+                <div class="topnav" style="float: right;">
+                    <a class="btn" href="register">Sign Up</a>
+                    <a  class="btn" href="login">Log In</a>
+                  </div>
+            </div>
+            <!-- Top Nav End -->
+    {% else %}
+            <!-- Side navigation -->
+    <div class="sidenav">
+
+        <div class="img">
+            <img  class="medium" width="198" height="205" src="{{ url_for('static',filename='img/newlogo4.png')}}" alt="My Pic">
+        </div>
+                </br>
+                </br>
+                <a  href="myaccount" > <i class="material-icons-outlined"  >account_circle </i> My Account</a>
+                </br>
+
+
+                <div class="dropdown">
+                    <a  class="dropbtn"><i class="material-icons-outlined"  >analytics </i> Analytics</a>
+                    
+                    <div class="dropdown-content">
+                      <a href="d_analytics">Diabetes</a>
+                      <a href="hf_analytics">Heart Failure</a>
+                      <a href="lf_analytics">Liver Failure</a>
+        
+                    </div>
+                  </div>
+
+
+                </br>
+                    <div class="dropdown">
+                    <a class="dropbtn"><i class="material-icons-outlined"  >settings </i> ML Models</a>
+                    
+                    <div class="dropdown-content">
+                      <a href="diabetes_model">Diabetes</a>
+                      <a href="heartfailure_model">Heart Failure</a>
+                      <a href="alf_model">Liver Failure</a>
+                      <a href="pneumonia"> Pneumonia</a>
+                      <a href="braintumor">Brain Tumor</a>
+                    </div>
+                  </div>
+                
+                </br>
+             
+       
+      </div>
+    <!-- SideNav End -->
+
+    <!-- Body Divider -->
+    <div>
+    <!-- Body -->
+    <body style="background-color: #fff;">
+
+        <!-- Main -->
+        <div class="main">
+            
+ 
+            <!-- Top navigation -->
+            <div class="topnav">
+                <a href="/">Home</a>
+                <a href="contact">Contact</a>
+                <a href="about">About</a>
+               
+                <div class="topnav" style="float: right;">
+
+                    <div class="dropdowntop">
+                        
+                        <a class="dropbtntop">{{user_name}}</a>
+                        
+                        <div class="dropdowntop-content">
+                          <a href="logout">Log Out</a>
+      
+                        </div>
+                      </div>
+                  
+                    
+                  </div>
+            </div>
+            <!-- Top Nav End -->
+    {% endif %}   
+
+
+
+
+
+
+
+            <!-- Content -->
+
+            <div class="content">
+            
+            
+                <section class="container">
+                    <p class="title">
+                    <span class="title">Acute Liver Failure Prediction Model</span>
+                    </p>
+                </section>
+
+                <p style="font-size:larger;width: 95%;">Please Enter Patient Information <button style="float: right;">Jupyter Notebook</button></p> 
+                <form action="#" method="post" style="height: 575.5px;background-color: white;padding: 20px;border-radius: 15px;border-style: outset;">
+                    <label for="age">Age</label>
+                    <input type="number" id="age"   name="age" min="0" max="100" required autocomplete="off">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="waist">Waist:</label>
+                    <input type="number" id="waist" step="0.01"  name="waist" min="0" max="1000" required autocomplete="off">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="mbp">Maximum Blood Pressure</label>
+                    <input type="number" step="0.01" id="mbp"  name="mbp" min="0" max="1000" required autocomplete="off">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="badchol">Bad Cholesterol</label>
+                    <input type="number" step="0.01" id="badchol"  name="badchol" min="0" max="1000" required autocomplete="off">
+
+                    <br>
+                    <br>
+                    <label for="minbp">Minimum Blood Pressure</label>
+                    <input type="number" step="0.01" id="minbp"  name="minbp" min="0" max="1000" required autocomplete="off">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="goodchol">Good Cholesterol</label>
+                    <input type="number" step="0.01" id="goodchol"  name="goodchol" min="0" max="1000" required autocomplete="off">
+                    &nbsp;&nbsp;&nbsp;
+                    <label for="totalchol">Total Cholesterol</label>
+                    <input type="number" step="0.01" id="totalchol"  name="totalchol" min="0" max="1000" required autocomplete="off">
+                    <br>
+                    <br>
+                    
+                    <label for="gender">Sex:</label>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="region">Region:</label>
+
+                    <input type="radio" id="east" name="region" value="east">
+                    <label for="east">East</label>
+
+                    <input type="radio" id="north" name="region" value="north">
+                    <label for="north">North</label>
+
+                    <input type="radio" id="south" name="region" value="south">
+                    <label for="south">South</label>
+
+                    <input type="radio" id="west" name="region" value="west">
+                    <label for="west">West</label>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="obesity">Obesity:</label>
+                    <input type="radio" id="yes" name="obesity" value="Yes">
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="obesity" value="No">
+                    <label for="no">No</label>
+                    <br>
+                    <br>
+                    <label for="Dyslipidemia">Dyslipidemia:</label>
+                    <input type="radio" id="yes" name="Dyslipidemia" value="Yes">
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="Dyslipidemia" value="No">
+                    <label for="no">No</label>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="pvd">Peripheral vascular disease (PVD):</label>
+                    <input type="radio" id="yes" name="pvd" value="Yes">
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="pvd" value="No">
+                    <label for="no">No</label>
+                    
+                    <br>
+                    <br>
+                    
+                    <label for="income">Income:</label>
+                    <input type="radio" id="high" name="income" value="high">
+                    <label for="high">High</label>
+                    <input type="radio" id="low" name="income" value="low">
+                    <label for="low">Low</label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="poorvision">Poor Vision:</label>
+                    <input type="radio" id="yes" name="poorvision" value="Yes">
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="poorvision" value="No">
+                    <label for="no">No</label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="ac">Alcohol Consumption:</label>
+                    <input type="radio" id="yes" name="ac" value="Yes">
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="ac" value="No">
+                    <label for="no">No</label>
+                    
+
+                    <br>
+                    <br>
+                    <label for="ht">HyperTension:</label>
+                    <input type="radio" id="yes" name="ht" value="Yes">
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="ht" value="No">
+                    <label for="no">No</label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="fht">Family HyperTension:</label>
+                    <input type="radio" id="yes" name="fht" value="Yes">
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="fht" value="No">
+                    <label for="no">No</label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="diabetes">Diabetes:</label>
+                    <input type="radio" id="yes" name="diabetes" value="Yes">
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="diabetes" value="No">
+                    <label for="no">No</label>
+                    
+
+
+                    <br>
+                    <br>
+                    
+                    <label for="fd">Family Diabetes:</label>
+                    <input type="radio" id="yes" name="fd" value="Yes">
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="fd" value="No">
+                    <label for="no">No</label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="hepa">Hepatitis:</label>
+                    <input type="radio" id="yes" name="hepa" value="Yes">
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="hepa" value="No">
+                    <label for="no">No</label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="famhepa">Family Hepatitis:</label>
+                    <input type="radio" id="yes" name="famhepa" value="Yes">
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="famhepa" value="No">
+                    <label for="no">No</label>
+                </br>
+                <br>
+                    <label for="chron">Chronic Fatigue:</label>
+                    <input type="radio" id="yes" name="chron" value="Yes">
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="chron" value="No">
+                    <label for="no">No</label>
+
+                    </br>
+                    <br>
+                    <input type="submit" style="font-size: smaller;"  class="mainbutton" value="Predict"/>
+                    {% with messages = get_flashed_messages() %}
+                    {% for message in messages %}
+                    <div class="blinking" style="float: right;" >{{message}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    {% endfor %}
+                    {% endwith %}
+
+                </br>
+
+                </br>
+                    
+                
+                   
+                </form>
+
+                
+                
+                </div>
+
+            </div>
+            <!-- Content End -->
+
+
+
+        <!-- Main End -->
+        
+    </body>
+     <!-- Body End -->
+</div>
+
+<!-- Body Divider End-->
+</html>
+
+

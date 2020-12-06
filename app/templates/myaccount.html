@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<html>
+    <style>
+        .blinking{
+        animation:blinkingText 3.0s infinite;
+        font-size: smaller;
+        }
+        @keyframes blinkingText{
+            0%{     color: #22485F;    }
+            49%{    color: #22485F; }
+            60%{    color: #22485F; }
+            99%{    color:transparent;  }
+            100%{   color: #22485F;    }
+        }
+    </style>
+    <style>
+
+
+        .dropdown2 {
+          position: relative;
+          display: inline-block;
+        }
+        
+        .dropdown2-content {
+          display: none;
+          position: absolute;
+          background-color: white;
+          min-width: 160px;
+          overflow: auto;
+          border-radius: 5px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+        
+        .dropdown2-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+        
+        
+        
+        .show {display:block;}
+        </style>
+        
+
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/tooltip.css')}}">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+
+    <head>
+        <title>My Account</title>
+    </head>
+
+    
+    <!-- Side navigation -->
+    <div class="sidenav">
+
+        <div class="img">
+            <img  class="medium" width="198" height="205" src="{{ url_for('static',filename='img/newlogo4.png')}}" alt="My Pic">
+        </div>
+                </br>
+                </br>
+                <a  href="myaccount" > <i class="material-icons-outlined"  >account_circle </i> My Account</a>
+                </br>
+
+
+                <div class="dropdown">
+                    <a  class="dropbtn"><i class="material-icons-outlined"  >analytics </i> Analytics</a>
+                    
+                    <div class="dropdown-content">
+                      <a href="d_analytics">Diabetes</a>
+                      <a href="hf_analytics">Heart Failure</a>
+                      <a href="lf_analytics">Liver Failure</a>
+        
+                    </div>
+                  </div>
+
+
+                </br>
+                    <div class="dropdown">
+                    <a class="dropbtn"><i class="material-icons-outlined"  >settings </i> ML Models</a>
+                    
+                    <div class="dropdown-content">
+                      <a href="diabetes_model">Diabetes</a>
+                      <a href="heartfailure_model">Heart Failure</a>
+                      <a href="alf_model">Liver Failure</a>
+                      <a href="pneumonia"> Pneumonia</a>
+                      <a href="braintumor">Brain Tumor</a>
+                    </div>
+                  </div>
+                
+                </br>
+             
+       
+      </div>
+    <!-- SideNav End -->
+
+    <!-- Body Divider -->
+    <div>
+    <!-- Body -->
+    <body style="background-color: #fff;">
+
+        <!-- Main -->
+        <div style="height: 755px;" class="main">
+            
+ 
+            <!-- Top navigation -->
+            <div class="topnav">
+                <a href="/">Home</a>
+                <a   href="contact">Contact</a>
+                <a  class="btn"  href="about">About</a>
+               
+                <div class="topnav" style="float: right;">
+
+                    <div class="dropdowntop">
+                        
+                        <a class="dropbtntop">{{user_name}}</a>
+                        
+                        <div class="dropdowntop-content">
+                          <a href="logout">Log Out</a>
+      
+                        </div>
+                      </div>
+                  
+                    
+                  </div>
+            </div>
+            <!-- Top Nav End -->
+            
+            <!-- Content -->
+
+            <div class="content" >
+
+                
+
+            
+                <section class="container" >
+                    <p class="title">
+                    <span class="title">My Account</span>
+                    </p>
+                </section>
+
+
+                Username : {{user_name}} 
+
+                {% with messages = get_flashed_messages() %}
+
+                    {% if messages %}
+                        {% for message in messages %}
+
+                            {% if message =="Sorry this Username is Not Available"%}
+                                <div class ="signup_link" >
+                                </br>
+                                
+                                  <span class="blinking">{{message}}</span>
+                                    
+                         
+                            {% elif  message =="Username Change Successful"%}
+                                <div class ="signup_link" style="font-size: smaller;">
+                                </br>
+                                    <span  class="blinking">
+                                    {{message}}
+                                   
+                                </span>
+                            {% endif %}
+                          
+                        {% endfor %}
+                    
+                    {% endif %}
+                   
+                {% endwith %}
+            </br>
+            </br>
+
+        
+                <div class="dropdown2">
+                  <button id="myBtn2" >Change Username</button>
+                  <div id="myDropdown2"  class="dropdown2-content">
+                    <form action="changeUsername" method="post" style="text-align:center"  >
+                      
+                               <input type="text"  id="fname" name="fname" placeholder="Enter New Username" required autocomplete="off"><br>
+
+                            <input  type="submit" value="Update">
+                    </form>
+                  </div>
+                </div>
+                
+                
+            
+            
+            </br></br>
+
+                Email : {{email}}
+
+                {% with messages = get_flashed_messages() %}
+
+                    {% if messages %}
+                        {% for message in messages %}
+
+                            {% if message =="Sorry this Email is Not Available"%}
+                                <div class ="signup_link" >
+                                </br>
+                                
+                                  <span class="blinking">{{message}}</span>
+                                    
+                         
+                            {% elif  message =="Email Change Successful"%}
+                                <div class ="signup_link" style="font-size: smaller;">
+                                </br>
+                                    <span  class="blinking">
+                                    {{message}}
+                                   
+                                </span>
+                            {% endif %}
+                          
+                        {% endfor %}
+                    
+                    {% endif %}
+                   
+                {% endwith %}
+                
+            </br>
+            </br>
+
+                <div class="dropdown2">
+                  <button id="myBtn3" >Change Email</button>
+                  <div id="myDropdown3"  class="dropdown2-content">
+                    <form action="changeEmail" method="post" style="text-align:center"  >
+                      
+                               <input type="text"  id="femail" name="femail" placeholder="Enter New Email" required autocomplete="off"><br>
+
+                            <input  type="submit" value="Update">
+                    </form>
+                  </div>
+                </div>
+
+           
+            </br></br>
+                Password : {{password}}
+                {% with messages = get_flashed_messages() %}
+
+                    {% if messages %}
+                        {% for message in messages %}
+
+                            {% if message =="Password Change Successful"%}
+                                <div class ="signup_link" >
+                                </br>
+                                
+                                  <span class="blinking">{{message}}</span>
+                                    
+                         
+                            {% endif %}
+                          
+                        {% endfor %}
+                    
+                    {% endif %}
+                   
+                {% endwith %}
+            </br>
+            </br>
+            <div class="dropdown2">
+                <button id="myBtn4" >Change Password</button>
+                <div id="myDropdown4"  class="dropdown2-content">
+                  <form action="changePassword" method="post" style="text-align:center"  >
+                    
+                             <input type="text"  id="fpassword" name="fpassword" placeholder="Enter New Password" required autocomplete="off"><br>
+                             
+                          <input  type="submit" value="Update">
+                  </form>
+                </div>
+              </div>
+
+            
+        </br></br>
+        Delete
+        </br>
+        </br>
+        
+
+
+
+        <div class="dropdown2">
+          <button id="myBtn5" >Delete Account</button>
+          <div id="myDropdown5"  class="dropdown2-content">
+            
+              
+                       <input  placeholder="Are you sure?" required autocomplete="off"><br>
+                       
+                       <button style="text-align:center"  onclick="window.location.href='deleteAccount';" >Yes</button>
+                       <button style="text-align:center"  onclick="window.location.href='myaccount';" >No</button>
+            
+          </div>
+        </div>
+            
+
+
+
+                </div>
+
+            </div>
+            <!-- Content End -->
+
+
+
+        <!-- Main End -->
+    </body>
+     <!-- Body End -->
+</div>
+<script>
+    // Get the button, and when the user clicks on it, execute myFunction
+    document.getElementById("myBtn2").onclick = function() {myFunction()};
+    
+    /* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown2").classList.toggle("show");
+    }
+
+    document.getElementById("myBtn3").onclick = function() {myFunction2()};
+    
+    /* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
+    function myFunction2() {
+      document.getElementById("myDropdown3").classList.toggle("show");
+    }
+
+    document.getElementById("myBtn4").onclick = function() {myFunction3()};
+    
+    /* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
+    function myFunction3() {
+      document.getElementById("myDropdown4").classList.toggle("show");
+    }
+
+    document.getElementById("myBtn5").onclick = function() {myFunction4()};
+    
+    /* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
+    function myFunction4() {
+      document.getElementById("myDropdown5").classList.toggle("show");
+    }
+    </script>
+<!-- Body Divider End-->
+</html>
+
