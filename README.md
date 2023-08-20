@@ -1,6 +1,6 @@
 # SmoothHeallthAI-Medical-App
 
-### Smoothhealth is a start-up started by Isaac>
+### Smoothhealth is a start-up started by Isaac
 
 Click [Here](http://54.202.56.3:8000/) to View Application
 
