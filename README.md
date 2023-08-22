@@ -1,6 +1,8 @@
 
 # SmoothAI is a tech startup aiming to provide applications of AI in various fields from Finance to healthcare.
-### SmoothAI health app is an app aiming to provide visual insights in medical data, in the first version of the app we aim to provide diagnosis, prognosis and treatment planning functionalities. 
+
+
+### SmoothAI health app is an app aiming to provide visual insights and guidance in medical data using Artificial Intelligence, in the first version of the app we aim to provide diagnosis, prognosis and treatment planning functionalities. 
 
 Click [Here](http://54.202.56.3:8000/) to View Application
 
