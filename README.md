@@ -8,3 +8,4 @@ Click [Here](http://54.202.56.3:8000/) to View Application
 
 <img src="https://github.com/isaacbull/smoothhealth-AI-app/blob/main/app/static/img/smoothhealthapp.png" width="950" height="550">
 
+this should include a web app that would give access to the models after authorization of members 
